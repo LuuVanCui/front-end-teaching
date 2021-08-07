@@ -1,0 +1,14 @@
+h2 {
+    background-color: blue;
+}
+
+h1 {
+    background-color: black;
+}
+
+/* 
+Độ ưu tiên khi CSS trùng nhau:  
+- Inline CSS
+- External CSS
+- Internal 
+*/

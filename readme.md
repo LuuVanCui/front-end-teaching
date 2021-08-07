@@ -32,8 +32,15 @@
 - CSS padding
 - CSS border
 - CSS margin
+- CSS box-sizing
 
 6. CSS background
+
+- Background-clip
+- Background-image
+- Background-origin
+- Background-position
+
 7. CSS position
 8. CSS flexbox
 9. Làm đồ án
