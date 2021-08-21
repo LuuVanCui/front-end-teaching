@@ -42,6 +42,12 @@
 - Background-position
 
 7. CSS position
+
+- Relative
+- Absolute
+- Fixed
+- Stiky
+
 8. CSS flexbox
 9. Làm đồ án
 
