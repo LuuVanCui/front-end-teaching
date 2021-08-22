@@ -53,6 +53,10 @@
 
 - https://jolly-kalam-23776e.netlify.app/cssgridresponsive/
 
+- https://codepen.io/freeCodeCamp/full/wgGVVX
+
+- Trang chủ của Minh: https://codepen.io/freeCodeCamp/full/zNBOYG
+
 ## Phần 3: Javascript
 
 1. Variable
