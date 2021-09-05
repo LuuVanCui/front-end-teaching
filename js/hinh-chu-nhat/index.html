@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hình chữ nhật</title>
+</head>
+
+<body>
+    <form>
+        <div class="input">
+            <label for="input-a">Nhập a: </label>
+            <input type="text" name="a" id="input-a">
+        </div>
+        <div class="input">
+            <label for="input-b">Nhập b: </label>
+            <input type="text" name="b" id="input-b">
+        </div>
+        <button id="calculate">Tính toán</button>
+    </form>
+    <h2 id="result"></h2>
+
+    <script>
+
+        document.getElementById('calculate').onclick = function (event) {
+            event.preventDefault();
+
+            // Get input
+            const a = Number.parseFloat(document.getElementById('input-a').value);
+            const b = Number.parseFloat(document.getElementById('input-b').value);
+
+            // process
+            const p = (a + b) * 2;
+            const s = a * b;
+
+            // output
+            const result = "Chu vi la: " + p + " \n Dien tich la: " + s;
+            document.getElementById('result').innerHTML = result;
+        }
+
+    </script>
+</body>
+
+</html>
