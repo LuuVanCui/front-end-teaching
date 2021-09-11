@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+  </head>
+  <body>
+    <h1>Welcome to Counter App!</h1>
+    <button id="inc" onclick="changeValue('+')">Increase</button>
+    <button id="dec" onclick="changeValue('-')">Decrease</button>
+    <p id="counter">Current Counter: 0</p>
+    <script>
+      let counter = 0;
+
+      // Counter
+      function changeValue(operator) {
+        if (operator === "+") {
+          counter++;
+        } else {
+          counter--;
+        }
+
+        document.getElementById("counter").innerHTML =
+          "Current Counter: " + counter;
+      }
+    </script>
+  </body>
+</html>

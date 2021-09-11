@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customize Color</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      button {
+        margin: 5px 10%;
+        height: 30px;
+        font-size: 15px;
+        border: none;
+        font-weight: 500;
+        border-radius: 10px;
+      }
+
+      input {
+        margin: 5px 10%;
+        font-weight: 600;
+        font-size: 15px;
+        border-radius: 10px;
+      }
+
+      input:hover {
+        outline: none;
+      }
+
+      button:hover {
+        cursor: pointer;
+      }
+
+      .cl-red {
+        background-color: rgb(230, 69, 69);
+      }
+
+      .cl-less-red {
+        background-color: rgb(238, 151, 151);
+      }
+
+      .cl-green {
+        background-color: green;
+      }
+
+      .cl-less-green {
+        background-color: rgb(100, 131, 100);
+      }
+
+      .cl-blue {
+        background-color: rgb(62, 62, 247);
+      }
+
+      .cl-less-blue {
+        background-color: rgb(125, 125, 245);
+      }
+
+      .block {
+        width: 100px;
+        height: 100px;
+        background-color: rgb(50, 50, 50);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome Customize Color App!</h1>
+    <div class="container">
+      <label for="red" style="color: red">Red</label>
+      <input type="number" name="red" id="red" />
+      <button class="cl-red">More Red</button>
+      <button class="cl-less-red">Less Red</button>
+    </div>
+    <div class="container">
+      <label for="green" style="color: green">Green</label>
+      <input type="number" name="green" id="green" />
+      <button class="cl-green">More Green</button>
+      <button class="cl-less-green">Less Green</button>
+    </div>
+    <div class="container">
+      <label for="blue" style="color: blue">Blue</label>
+      <input type="number" id="blue" />
+      <button class="cl-blue">More Blue</button>
+      <button class="cl-less-blue">Less Blue</button>
+    </div>
+    <div class="block"></div>
+  </body>
+</html>
