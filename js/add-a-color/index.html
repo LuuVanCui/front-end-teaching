@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add a color</title>
+    <style>
+      .block {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to Random Color App!</h1>
+    <button onclick="addRandomColorBlock()">Add a color</button>
+    <div id="container"></div>
+    <script>
+      function addRandomColorBlock() {
+        const red = Math.floor(Math.random() * 256);
+        const green = Math.floor(Math.random() * 256);
+        const blue = Math.floor(Math.random() * 256);
+
+        // Create block
+        const divElement = document.createElement("div");
+        let id = document.createAttribute("id");
+        id.value = red + green + blue;
+        divElement.setAttributeNode(id);
+        divElement.setAttribute("class", "block");
+
+        document.getElementById("container").appendChild(divElement);
+        document.getElementById(
+          red + green + blue
+        ).style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+      }
+    </script>
+  </body>
+</html>
