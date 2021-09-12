@@ -4,34 +4,50 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add a color</title>
+    <title>Add A Color</title>
     <style>
       .block {
         width: 100px;
         height: 100px;
+        display: inline-block;
       }
     </style>
   </head>
   <body>
-    <h1>Welcome to Random Color App!</h1>
-    <button onclick="addRandomColorBlock()">Add a color</button>
+    <h1>Welcome to Add Random Colors App</h1>
+    <button style="margin-bottom: 10px" onclick="addRandomColorBlock()">
+      Add A Color
+    </button>
     <div id="container"></div>
+
     <script>
+      // ý tưởng: tạo ra các thẻ div trong thẻ có id là container
+
+      // Thẻ div này phải đáp ứng điều kiện sau:
+      // - Có class là block
+      // - Có 1 id random
+
       function addRandomColorBlock() {
+        // Random rgb color
         const red = Math.floor(Math.random() * 256);
         const green = Math.floor(Math.random() * 256);
         const blue = Math.floor(Math.random() * 256);
 
-        // Create block
-        const divElement = document.createElement("div");
-        let id = document.createAttribute("id");
-        id.value = red + green + blue;
-        divElement.setAttributeNode(id);
-        divElement.setAttribute("class", "block");
+        const randomId = red + green + blue;
 
+        // Create div element
+        const divElement = document.createElement("div");
+
+        // Set class and id
+        divElement.setAttribute("class", "block");
+        divElement.setAttribute("id", randomId);
+
+        // Display div element to screen
         document.getElementById("container").appendChild(divElement);
+
+        // Css background color for the div element you just create
         document.getElementById(
-          red + green + blue
+          randomId
         ).style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
       }
     </script>

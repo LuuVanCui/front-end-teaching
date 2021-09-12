@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Customize Color</title>
     <style>
+      html {
+        font-family: "Courier New", Courier, monospace;
+      }
+
       .container {
         display: flex;
         flex-direction: column;
@@ -21,14 +25,21 @@
       }
 
       input {
-        margin: 5px 10%;
+        margin: 5px 40%;
         font-weight: 600;
         font-size: 15px;
-        border-radius: 10px;
+        border-radius: 5px;
+        text-align: center;
+        border: 1px solid #333;
+      }
+
+      label {
+        font-size: 20px;
       }
 
       input:hover {
         outline: none;
+        border: 1px solid #333;
       }
 
       button:hover {
@@ -59,20 +70,27 @@
         background-color: #7d7df5;
       }
 
+      .result {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
       .block {
         width: 100px;
         height: 100px;
-        background-color: rgb(50, 50, 50);
+        background-color: rgb(60, 100, 100);
+        margin-bottom: 10px;
       }
     </style>
   </head>
   <body>
-    <h1>Welcome Customize Color App!</h1>
+    <h1 style="text-align: center">Welcome Customize Color App!</h1>
     <div class="container">
       <label for="red" style="color: red">Red</label>
       <input type="number" name="red" id="red" />
-      <button class="cl-red">More Red</button>
-      <button class="cl-less-red">Less Red</button>
+      <button class="cl-red" onclick="changeValue('+')">More Red</button>
+      <button class="cl-less-red" onclick="changeValue('-')">Less Red</button>
     </div>
     <div class="container">
       <label for="green" style="color: green">Green</label>
@@ -86,6 +104,31 @@
       <button class="cl-blue">More Blue</button>
       <button class="cl-less-blue">Less Blue</button>
     </div>
-    <div class="block"></div>
+    <div class="result">
+      <div class="block" id="block"></div>
+      <label for="result" id="result">Color Current: rgb(60, 100, 100)</label>
+    </div>
+
+    <script>
+      let red = 60;
+      let green = 100;
+      let blue = 100;
+
+      // Set default input value
+      document.getElementById("red").value = 1;
+      document.getElementById("green").value = 1;
+      document.getElementById("blue").value = 1;
+
+      function changeValue(operator) {
+        if (operator === "+") {
+          red++;
+        } else {
+          red--;
+        }
+        document.getElementById(
+          "block"
+        ).style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+      }
+    </script>
   </body>
 </html>
