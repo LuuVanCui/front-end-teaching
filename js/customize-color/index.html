@@ -35,6 +35,7 @@
 
       label {
         font-size: 20px;
+        font-weight: bold;
       }
 
       input:hover {
@@ -81,6 +82,7 @@
         height: 100px;
         background-color: rgb(60, 100, 100);
         margin-bottom: 10px;
+        border-radius: 50%;
       }
     </style>
   </head>
@@ -89,20 +91,30 @@
     <div class="container">
       <label for="red" style="color: red">Red</label>
       <input type="number" name="red" id="red" />
-      <button class="cl-red" onclick="changeValue('+')">More Red</button>
-      <button class="cl-less-red" onclick="changeValue('-')">Less Red</button>
+      <button class="cl-red" onclick="changeValue('red', '+')">More Red</button>
+      <button class="cl-less-red" onclick="changeValue('red', '-')">
+        Less Red
+      </button>
     </div>
     <div class="container">
       <label for="green" style="color: green">Green</label>
       <input type="number" name="green" id="green" />
-      <button class="cl-green">More Green</button>
-      <button class="cl-less-green">Less Green</button>
+      <button class="cl-green" onclick="changeValue('green', '+')">
+        More Green
+      </button>
+      <button class="cl-less-green" onclick="changeValue('green', '-')">
+        Less Green
+      </button>
     </div>
     <div class="container">
       <label for="blue" style="color: blue">Blue</label>
       <input type="number" id="blue" />
-      <button class="cl-blue">More Blue</button>
-      <button class="cl-less-blue">Less Blue</button>
+      <button class="cl-blue" onclick="changeValue('blue', '+')">
+        More Blue
+      </button>
+      <button class="cl-less-blue" onclick="changeValue('blue', '-')">
+        Less Blue
+      </button>
     </div>
     <div class="result">
       <div class="block" id="block"></div>
@@ -119,15 +131,50 @@
       document.getElementById("green").value = 1;
       document.getElementById("blue").value = 1;
 
-      function changeValue(operator) {
+      function changeValue(id, operator) {
+        const VALUE_VALUE_CHANGE = parseInt(document.getElementById(id).value);
+
         if (operator === "+") {
-          red++;
+          if (id === "red") {
+            red += VALUE_VALUE_CHANGE;
+          } else if (id === "green") {
+            green += VALUE_VALUE_CHANGE;
+          } else {
+            blue += VALUE_VALUE_CHANGE;
+          }
+
+          if (red > 255) {
+            red = 255;
+          } else if (green > 255) {
+            green = 255;
+          } else if (blue > 255) {
+            blue = 255;
+          }
         } else {
-          red--;
+          if (id === "red") {
+            red -= VALUE_VALUE_CHANGE;
+          } else if (id === "green") {
+            green -= VALUE_VALUE_CHANGE;
+          } else {
+            blue -= VALUE_VALUE_CHANGE;
+          }
+
+          if (red < 0) {
+            red = 0;
+          } else if (green < 0) {
+            green = 0;
+          } else if (blue < 0) {
+            blue = 0;
+          }
         }
+
         document.getElementById(
           "block"
         ).style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+
+        document.getElementById(
+          "result"
+        ).innerHTML = `Color Current: rgb(${red}, ${green}, ${blue})`;
       }
     </script>
   </body>
