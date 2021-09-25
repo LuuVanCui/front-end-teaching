@@ -1,0 +1,78 @@
+html {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  margin: 5px 10%;
+  height: 30px;
+  font-size: 15px;
+  border: none;
+  font-weight: 500;
+  border-radius: 10px;
+}
+
+input {
+  margin: 5px 40%;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid #333;
+}
+
+label {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+input:hover {
+  outline: none;
+  border: 1px solid #333;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.cl-red {
+  background-color: rgb(230, 69, 69);
+}
+
+.cl-less-red {
+  background-color: rgb(238, 151, 151);
+}
+
+.cl-green {
+  background-color: green;
+}
+
+.cl-less-green {
+  background-color: rgb(100, 131, 100);
+}
+
+.cl-blue {
+  background-color: rgb(62, 62, 247);
+}
+
+.cl-less-blue {
+  background-color: #7d7df5;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.block {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(60, 100, 100);
+  margin-bottom: 10px;
+  border-radius: 50%;
+}

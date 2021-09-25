@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exchange money</title>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Courier New", Courier, monospace;
+        font-size: large;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 40px;
+        margin: 50px 0;
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      select {
+        width: 150px;
+      }
+
+      .money-convert {
+        display: flex;
+        justify-content: center;
+      }
+
+      .icon {
+        padding: 5px;
+        border-radius: 50px;
+      }
+
+      .icon:hover {
+        background-color: #ccc;
+        cursor: pointer;
+      }
+
+      .money-convert-item {
+        margin: 0 30px;
+      }
+
+      .exchange {
+        display: flex;
+      }
+
+      .exchange-item {
+        margin: 0 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Money Convertor</h1>
+    <form class="money-convert">
+      <div class="amount money-convert-item">
+        <label for="amount">Amount:</label>
+        <input
+          type="number"
+          name="amount"
+          id="amount"
+          value="0"
+          onchange="exchangeMoney(event)"
+        />
+      </div>
+      <div class="exchange money-convert-item">
+        <div class="from exchange-item">
+          <label for="amount">From:</label>
+          <select id="money-type-for-from">
+            <option value="USD">USD</option>
+            <option value="Vietnam">Vietnam</option>
+          </select>
+        </div>
+        <div class="exchange-item icon" onclick="changeUnit()">
+          <i class="fas fa-exchange-alt"></i>
+        </div>
+        <div class="to exchange-item">
+          <label for="amount">To:</label>
+          <select id="money-type-for-to">
+            <option value="Vietnam">Vietnam</option>
+            <option value="USD">USD</option>
+          </select>
+        </div>
+      </div>
+    </form>
+    <h1 id="result"></h1>
+
+    <script>
+      function changeUnit() {
+        const selectFromElement = document.getElementById(
+          "money-type-for-from"
+        );
+        let valueFrom =
+          selectFromElement[selectFromElement.selectedIndex].value;
+
+        const selectToElement = document.getElementById("money-type-for-to");
+        let valueTo = selectToElement[selectToElement.selectedIndex].value;
+
+        // swap
+        let temp = valueFrom;
+        valueFrom = valueTo;
+        valueTo = temp;
+
+        selectFromElement.value = valueFrom;
+        selectToElement.value = valueTo;
+      }
+
+      function exchangeMoney() {
+        document.getElementById("result").innerHTML =
+          document.getElementById("amount").value;
+      }
+    </script>
+  </body>
+</html>
