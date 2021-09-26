@@ -63,7 +63,7 @@
   </head>
   <body>
     <h1>Money Convertor</h1>
-    <form class="money-convert">
+    <div class="money-convert">
       <div class="amount money-convert-item">
         <label for="amount">Amount:</label>
         <input
@@ -71,15 +71,15 @@
           name="amount"
           id="amount"
           value="0"
-          onchange="exchangeMoney(event)"
+          onchange="exchangeMoney()"
         />
       </div>
       <div class="exchange money-convert-item">
         <div class="from exchange-item">
           <label for="amount">From:</label>
-          <select id="money-type-for-from">
-            <option value="USD">USD</option>
-            <option value="Vietnam">Vietnam</option>
+          <select id="money-type-for-from" onchange="exchangeMoney()">
+            <option value="usd">USD</option>
+            <option value="vnd">Vietnam</option>
           </select>
         </div>
         <div class="exchange-item icon" onclick="changeUnit()">
@@ -87,13 +87,13 @@
         </div>
         <div class="to exchange-item">
           <label for="amount">To:</label>
-          <select id="money-type-for-to">
-            <option value="Vietnam">Vietnam</option>
-            <option value="USD">USD</option>
+          <select id="money-type-for-to" onchange="exchangeMoney()">
+            <option value="vnd">Vietnam</option>
+            <option value="usd">USD</option>
           </select>
         </div>
       </div>
-    </form>
+    </div>
     <h1 id="result"></h1>
 
     <script>
@@ -114,11 +114,38 @@
 
         selectFromElement.value = valueFrom;
         selectToElement.value = valueTo;
+
+        exchangeMoney();
       }
 
       function exchangeMoney() {
+        const inputValue = document.getElementById("amount").value;
+        if (inputValue === "") {
+          document.getElementById("amount").value = 0;
+        }
+
+        const value = parseFloat(document.getElementById("amount").value);
+        let result = value;
+
+        // 1usd = 22792.66vnd
+        const selectFromElement = document.getElementById(
+          "money-type-for-from"
+        );
+        const selectToElement = document.getElementById("money-type-for-to");
+
+        const unitFrom =
+          selectFromElement[selectFromElement.selectedIndex].value;
+        const unitTo = selectToElement[selectToElement.selectedIndex].value;
+
+        if (unitFrom === "usd" && unitTo === "vnd") {
+          result *= 22792.66;
+        } else if (unitFrom === "vnd" && unitTo === "usd") {
+          result /= 22792.66;
+        }
+
+        // Display result
         document.getElementById("result").innerHTML =
-          document.getElementById("amount").value;
+          value + unitFrom + " = " + result + unitTo;
       }
     </script>
   </body>
