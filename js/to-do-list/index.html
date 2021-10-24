@@ -100,8 +100,12 @@
 
       function edit(element) {
         const editData = prompt('Please add data you want to edit:');
+        if (editData === '') {
+          alert('Data is not null');
+          return;
+        }
         const h5 = element.parentNode.parentNode.childNodes[1];
-        
+        h5.innerHTML = editData;
       }
 
       document.getElementById("add-item").onclick = function (event) {
