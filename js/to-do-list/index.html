@@ -79,18 +79,7 @@
 
       <!-- Items -->
       <div class="list" id="list">
-        <div class="list-item tick">
-          <h5>Đi chợ</h5>
-          <div class="action">
-            <i
-              class="far fa-check-circle"
-              onclick="deleteElement(this)"
-              style="color: green"
-            ></i
-            ><i class="far fa-edit" style="color: blue"></i
-            ><i class="fas fa-times" style="color: red"></i>
-          </div>
-        </div>
+        
       </div>
       <div class="text-center mt-2" id="clear-item">
         <button type="button" class="btn btn-outline-success mb-5">
@@ -102,6 +91,17 @@
     <script>
       function deleteElement(element) {
         element.parentNode.parentNode.remove();
+      }
+
+      function tick(element) {
+        const listItem = element.parentNode.parentNode;
+        listItem.setAttribute('class', 'list-item tick');
+      } 
+
+      function edit(element) {
+        const editData = prompt('Please add data you want to edit:');
+        const h5 = element.parentNode.parentNode.childNodes[1];
+        
       }
 
       document.getElementById("add-item").onclick = function (event) {
@@ -135,30 +135,39 @@
         const checkIcon = document.createElement("i");
         const checkClass = document.createAttribute("class");
         checkClass.value = "far fa-check-circle";
+        const tickEvent = document.createAttribute('onclick');
+        tickEvent.value = 'tick(this)';
         const checkStyle = document.createAttribute("style");
         checkStyle.value = "color: green";
         checkIcon.setAttributeNode(checkClass);
         checkIcon.setAttributeNode(checkStyle);
+        checkIcon.setAttributeNode(tickEvent);
         actionElement.appendChild(checkIcon);
 
         // Create edit element
         const editIcon = document.createElement("i");
         const editClass = document.createAttribute("class");
         editClass.value = "far fa-edit";
+        const editEvent = document.createAttribute("onclick");
+        editEvent.value = "edit(this)";
         const editStyle = document.createAttribute("style");
         editStyle.value = "color: blue";
         editIcon.setAttributeNode(editClass);
         editIcon.setAttributeNode(editStyle);
+        editIcon.setAttributeNode(editEvent);
         actionElement.appendChild(editIcon);
 
         // Create delete icon
         const deleteIcon = document.createElement("i");
         const deleteClass = document.createAttribute("class");
         deleteClass.value = "fas fa-times";
+        const onclickEvent = document.createAttribute('onclick');
+        onclickEvent.value = 'deleteElement(this)';
         const deleteStyle = document.createAttribute("style");
         deleteStyle.value = "color: red";
         deleteIcon.setAttributeNode(deleteClass);
         deleteIcon.setAttributeNode(deleteStyle);
+        deleteIcon.setAttributeNode(onclickEvent);
         actionElement.appendChild(deleteIcon);
 
         // Apply
